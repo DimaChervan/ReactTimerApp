@@ -1,7 +1,8 @@
 import React from 'react';
+import Clock from 'Clock';
 
 const Countdown = () => (
-  <div>Countdown</div>
+  <Clock totalSeconds={129} />
 );
 
 export default Countdown;
