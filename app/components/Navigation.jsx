@@ -12,7 +12,7 @@ const Navigation = () => (
           <IndexLink to="/" activeClassName="active-link">Timer</IndexLink>
         </li>
         <li className="menu-item">
-          <Link to="/" activeClassName="active-link">Coutdown</Link>
+          <Link to="/countdown" activeClassName="active-link">Coutdown</Link>
         </li>
       </ul>
     </div>
