@@ -9,7 +9,7 @@ class Countdown extends React.Component {
       countdownStatus: 'stopped'
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate (prevProps, prevState) {
     if (this.state.countdownStatus !== prevState.countdownStatus) {
       switch (this.state.countdownStatus) {
         case 'started':
@@ -20,19 +20,34 @@ class Countdown extends React.Component {
             count: 0
           });
         case 'paused':
-          clearInterval(this.timer);
-          this.timer = null;
+          this.clearTimer();
           break;
       }
     }
   }
 
-  startTimer = () => {
+  componentWillUnmount () {
+    this.clearTimer();
+  }
+
+  clearTimer () {
+    clearInterval(this.timer);
+    this.timer = null;
+  }
+
+  startTimer () {
     this.timer = setInterval(() => {
       const newCount = this.state.count - 1;
       this.setState({
         count: newCount >= 0 ? newCount: 0
       });
+
+      if (newCount === 0) {
+        this.setState({
+          countdownStatus: 'stopped'
+        });
+      }
+
     }, 1000);
   }
 
