@@ -14,14 +14,12 @@ class Controls extends React.Component {
         if (countDownStatus === 'started') {
           return <button
             className="button secondary"
-            onClick={this.onStatusChange('paused')}>Pause</button>
+            onClick={this.onStatusChange('paused')}>Pause</button>;
         }
 
-        if (countDownStatus === 'paused') {
-          return <button
-            className="button primary"
-            onClick={this.onStatusChange('started')}>Start</button>
-        }
+        return <button
+          className="button primary"
+          onClick={this.onStatusChange('started')}>Start</button>;
     };
 
     return (
